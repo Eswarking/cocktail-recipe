@@ -1,11 +1,16 @@
 import "./SearchForm.css";
 import React from "react";
 
-function SearchForm() {
-  
+function SearchForm(props) {
+
   function handleSubmit(e) {
     e.preventDefault();
   }
+
+  function getCocktail(cocktail) {
+    props.getCocktail(cocktail)
+  }
+
   return (
     <section className="section-search">
       <form className="search-form" onSubmit={handleSubmit}>
@@ -14,6 +19,7 @@ function SearchForm() {
           <input
             type="text"
             className="input-form"
+            onChange={e => getCocktail(e.target.value)}
           />
         </div>
       </form>
